@@ -49,14 +49,15 @@ class FEA {
         void facenodes(const int& NSD_, const int& NEN_, 
                        const int& face_index_, 
                        int*& node_list_/*output*/ );
-    public:
-        FEA(const char* mesh_file, const char* filename_in, const char* filename_load_);
-        void Analysis();
+        //private memberfunction
         void Reorder();
         void ReadEle(const pMeshEnt& e);
         void Ele_Stiff();
         void Ele_Load();
         void Assemble();
         void SolveEq();
-
+        void Ele_Stress();
+    public:
+        FEA(const char* mesh_file, const char* filename_in, const char* filename_load_);
+        void Analysis();
 };
