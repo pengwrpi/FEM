@@ -28,7 +28,7 @@ void FEA::integrationpoints(const int& NEN_, const int& NINT, double**& xi, cons
 {
     xi = new double*[NSD_];
     for (unsigned int i = 0; i < NSD_; ++i)
-        xi[i] = new double[NINT];
+        xi[i] = new double[NINT]();
     if (NSD_ == 2)
     {
         if (NEN_ == 3 || NEN_ == 6)

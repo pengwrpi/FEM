@@ -29,6 +29,25 @@ void FEA::Analysis()
     }
     mesh->end(it);
     SolveEq();
+
+    it = mesh->begin(NSD);
+    while ((e = mesh->iterate(it)))
+    {
+        ReadEle(e);
+        Ele_Stress();
+        //clean the variable associated with elements
+        for (unsigned int i = 0; i < NSD; ++i)
+            delete[] coord[i];
+        delete[] coord;
+        delete[] IEN;
+        for (unsigned int i = 0; i < NSD; ++i)
+        {
+            for (unsigned int j = 0; j < NEN; ++j)
+                delete[] LM[i][j];
+            delete[] LM[i];
+        }
+        delete[] LM;
+    }
     //clean the "global" variable
     for (unsigned int i = 0; i < NSD; ++i)
     {
@@ -37,7 +56,6 @@ void FEA::Analysis()
         delete[] ID[i];
     }
     delete[] ID;
-
     for (unsigned int i = 0; i < NEL; ++i)
     {
         delete[] face_index[i];
@@ -50,4 +68,5 @@ void FEA::Analysis()
     delete[] num_edge;
     delete[] face_index;
     delete[] traction;
+    delete[] materialprops;
 }
