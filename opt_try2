@@ -1,0 +1,47 @@
+model .null loaded in 0.000008 seconds
+mesh outTriangle.smb loaded in 0.000147 seconds
+number of triangle 2 quad 0
+mesh entity counts: v 4 e 5 f 2 r 0
+materialsprops read
+10 0.3 
+element info read
+load info read
+reorder done
+writeVtuFile into buffers: 0.000024 seconds
+writeVtuFile buffers to disk: 0.000037 seconds
+vtk files numbered written in 0.000150 seconds
+NEN = 3
+element 0 is read
+coord node 0 = 0 0
+IEN node 0 = 1
+coord node 1 = 1 0
+IEN node 1 = 3
+coord node 2 = 1 1
+IEN node 2 = 2
+Ele_Stiff for element 0 is done
+Ele_Load for element 0 is done
+after F[P], P = 1
+after F[P], P = 1
+pushed back 1 1 5
+pushed back 1 1 5
+pushed back 1 2 5
+pushed back 1 2 5
+pushed back 1 5 -5
+pushed back 1 5 -5
+pushed back 1 3 -1.24521e-308
+pushed back 1 3 -1.24521e-308
+pushed back 1 4 0
+pushed back 1 4 0
+after F[P], P = 2
+after F[P], P = 2
+pushed back 2 1 5
+pushed back 2 1 5
+pushed back 2 2 22.5
+pushed back 2 2 22.5
+pushed back 2 5 -5
+pushed back 2 5 -5
+pushed back 2 3 7.5
+pushed back 2 3 7.5
+pushed back 2 4 0
+pushed back 2 4 0
+after F[P], P = 5

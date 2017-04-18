@@ -1,0 +1,219 @@
+model .null loaded in 0.000009 seconds
+mesh outTriangle.smb loaded in 0.000189 seconds
+number of triangle 2 quad 0
+mesh entity counts: v 4 e 5 f 2 r 0
+mesh dimension is 2
+materialsprops read
+10 0.3 
+element info read
+0 0 0 1
+0 2 0 3
+2 0 0 4
+2 0 2 0
+Force size 5
+1 0 1 0
+load info read
+reorder done
+writeVtuFile into buffers: 0.000022 seconds
+writeVtuFile buffers to disk: 0.000035 seconds
+vtk files numbered written in 0.000159 seconds
+NEN = 3
+element 0 is read
+coord node 0 = 0 0
+IEN node 0 = 3
+coord node 1 = 1 0
+IEN node 1 = 1
+coord node 2 = 0 1
+IEN node 2 = 2
+LM results for element 0
+2 0 2 0
+0 2 0 3
+2 0 0 4
+npoints for element 0 is 1
+integration points for element 0
+0.333333 0.333333
+integration weights for element 0
+0.5 
+dNdxi is calculated
+1 0 
+0 1 
+-1 -1 
+dxdxi is calculated
+0 1 
+-1 -1 
+dt = 1
+dxidx matrix is calculated
+-1 -1 
+1 0 
+dNdx matrix is calculated
+-1 -1 
+1 0 
+0 1 
+dsde is calculated
+35 0 
+0 15 
+
+0 10 
+10 0 
+
+
+0 10 
+10 0 
+
+15 0 
+0 35 
+
+
+Ele_Stiff for element 0 is done
+The matrix is
+22.5 12.5 -17.5 -5 -5 -7.5 
+12.5 22.5 -7.5 -5 -5 -17.5 
+-17.5 -7.5 17.5 0 0 7.5 
+-5 -5 0 5 5 0 
+-5 -5 0 5 5 0 
+-7.5 -17.5 7.5 0 0 17.5 
+Ele_Load for element 0 is done
+after F[P], P = 2
+after F[P], P = 2F[P] = 0
+pushed back 2 2 17.5
+pushed back 2 2 17.5
+pushed back 2 3 0
+pushed back 2 3 0
+pushed back 2 4 7.5
+pushed back 2 4 7.5
+after F[P], P = 3
+after F[P], P = 3F[P] = 0
+pushed back 3 2 0
+pushed back 3 2 0
+pushed back 3 3 5
+pushed back 3 3 5
+pushed back 3 4 0
+pushed back 3 4 0
+after F[P], P = 4
+after F[P], P = 4F[P] = 0
+pushed back 4 2 7.5
+pushed back 4 2 7.5
+pushed back 4 3 0
+pushed back 4 3 0
+pushed back 4 4 17.5
+pushed back 4 4 17.5
+Assemble for element 0 is done
+NEN = 3
+element 1 is read
+coord node 0 = 1 0
+IEN node 0 = 1
+coord node 1 = 1 1
+IEN node 1 = 0
+coord node 2 = 0 1
+IEN node 2 = 2
+LM results for element 1
+0 2 0 3
+0 0 0 1
+2 0 0 4
+npoints for element 1 is 1
+integration points for element 1
+0.333333 0.333333
+integration weights for element 1
+0.5 
+dNdxi is calculated
+1 0 
+0 1 
+-1 -1 
+dxdxi is calculated
+1 1 
+-1 0 
+dt = 1
+dxidx matrix is calculated
+0 -1 
+1 1 
+dNdx matrix is calculated
+0 -1 
+1 1 
+-1 0 
+dsde is calculated
+35 0 
+0 15 
+
+0 10 
+10 0 
+
+
+0 10 
+10 0 
+
+15 0 
+0 35 
+
+
+Ele_Stiff for element 1 is done
+The matrix is
+5 0 -5 -5 0 5 
+0 17.5 -7.5 -17.5 7.5 0 
+-5 -7.5 22.5 12.5 -17.5 -5 
+-5 -17.5 12.5 22.5 -7.5 -5 
+0 7.5 -17.5 -7.5 17.5 0 
+5 0 -5 -5 0 5 
+0 1
+Ele_Load for element 1 is done
+after F[P], P = 2
+after F[P], P = 2F[P] = 0.5
+pushed back 2 2 5
+pushed back 2 2 5
+pushed back 2 3 0
+pushed back 2 3 0
+pushed back 2 0 -5
+pushed back 2 0 -5
+pushed back 2 1 -5
+pushed back 2 1 -5
+pushed back 2 4 5
+pushed back 2 4 5
+after F[P], P = 3
+after F[P], P = 3F[P] = 0
+pushed back 3 2 0
+pushed back 3 2 0
+pushed back 3 3 17.5
+pushed back 3 3 17.5
+pushed back 3 0 -7.5
+pushed back 3 0 -7.5
+pushed back 3 1 -17.5
+pushed back 3 1 -17.5
+pushed back 3 4 0
+pushed back 3 4 0
+after F[P], P = 0
+after F[P], P = 0F[P] = 0.5
+pushed back 0 2 -5
+pushed back 0 2 -5
+pushed back 0 3 -7.5
+pushed back 0 3 -7.5
+pushed back 0 0 22.5
+pushed back 0 0 22.5
+pushed back 0 1 12.5
+pushed back 0 1 12.5
+pushed back 0 4 -5
+pushed back 0 4 -5
+after F[P], P = 1
+after F[P], P = 1F[P] = 0
+pushed back 1 2 -5
+pushed back 1 2 -5
+pushed back 1 3 -17.5
+pushed back 1 3 -17.5
+pushed back 1 0 12.5
+pushed back 1 0 12.5
+pushed back 1 1 22.5
+pushed back 1 1 22.5
+pushed back 1 4 -5
+pushed back 1 4 -5
+after F[P], P = 4
+after F[P], P = 4F[P] = 0
+pushed back 4 2 5
+pushed back 4 2 5
+pushed back 4 3 0
+pushed back 4 3 0
+pushed back 4 0 -5
+pushed back 4 0 -5
+pushed back 4 1 -5
+pushed back 4 1 -5
+pushed back 4 4 5
+pushed back 4 4 5
+Assemble for element 1 is done
+0.035 -0.015 0.035 0 -0.015 

@@ -46,7 +46,7 @@ void FEA::Ele_Stress()
     for (unsigned int a = 0; a < NEN; ++a)
     {
         for (unsigned int i = 0; i < NSD; ++i)
-            std::cout << DE[a][i] << " "; 
+            std::cout << DE[i][a] << " "; 
         std::cout << std::endl;
     }
         

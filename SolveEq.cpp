@@ -6,7 +6,7 @@ void FEA::SolveEq()
     K.setFromTriplets(Coeff.begin(), Coeff.end());
     Eigen::SimplicialCholesky<SpMat> chol(K);
     d = chol.solve(F);
-#if 0
+#if 1 
     for (unsigned int i = 0; i < NDOF; ++i)
         std::cout << d[i] << " ";
     std::cout << std::endl;
