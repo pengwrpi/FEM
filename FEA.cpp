@@ -1,6 +1,7 @@
 #include "FEA.h"
 #include <fstream>
 #include <string>
+#include <set>
 
 FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_load_)
                 
@@ -29,6 +30,23 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
     std::cout << "materialsprops read" << std::endl;
     std::cout << materialprops[0] << " " << materialprops[1] << " " << std::endl; 
 
+    int num_nodes_fix;
+
+    read_in >> num_nodes_fix;
+    std::set<int> fixed_nodes;
+    int types[num_nodes_fix];
+    double condition[num_nodes_fix];
+
+    for(unsigned int i = 0; i < num_nodes_fix; ++i)
+    {
+        int index_temp;
+        read_in >> index_temp;
+        fixed_nodes.insert(index_temp);
+        read_in >> types[i]; 
+        read_in >> condition[i]; 
+    }
+
+    read_in.close();
     NSD = pumi_mesh_getDim(mesh);
     NEL = pumi_mesh_getNumEnt(mesh, NSD);
     NDOF = 0;
@@ -43,14 +61,22 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
         }
     }
     std::vector<double> F_std;
+    int count_fixed = 0;
     for (unsigned int A = 0; A < NNP; ++A)
     {
         for (unsigned int i = 0; i < NSD; ++i)
         {
             unsigned int temp_type;
             double FG;
-            read_in >> temp_type;
-            read_in >> FG;
+            if (fixed_nodes.find(A) == fixed_nodes.end())
+            {
+                temp_type = 0;
+                FG = 0.0;
+            } else {
+                temp_type = types[count_fixed];
+                FG = condition[count_fixed];
+                count_fixed++;
+            }
             switch (temp_type)
             {
                 case 0://dof
@@ -72,7 +98,6 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
             }
         }
     }
-    read_in.close();
     std::cout << "element info read" << std::endl;
     for (unsigned int i = 0; i < NNP; ++i)
         std::cout << ID[0][i][0] << " " << ID[0][i][1] << " "
