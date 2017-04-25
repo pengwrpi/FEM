@@ -32,6 +32,7 @@ set(SOURCES
     Analysis.cpp
     Assemble.cpp
     Ele_Load.cpp
+    Ele_body.cpp
     Ele_Stiff.cpp
     ReadEle.cpp
     Reorder.cpp

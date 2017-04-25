@@ -35,6 +35,7 @@ class FEA {
         double** KE;
         double* FE;
         int Ele_ID;
+        double body_f[3];
         int* num_edge;
         int** face_index;
         double*** traction;
@@ -54,6 +55,7 @@ class FEA {
         void ReadEle(const pMeshEnt& e);
         void Ele_Stiff();
         void Ele_Load();
+        void Ele_body();
         void Assemble();
         void SolveEq();
         void Ele_Stress();

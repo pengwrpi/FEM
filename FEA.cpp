@@ -34,6 +34,7 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
 
     read_in >> num_nodes_fix;
     std::set<int> fixed_nodes;
+    int dim[num_nodes_fix];
     int types[num_nodes_fix];
     double condition[num_nodes_fix];
 
@@ -42,6 +43,7 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
         int index_temp;
         read_in >> index_temp;
         fixed_nodes.insert(index_temp);
+        read_in >> dim[i];
         read_in >> types[i]; 
         read_in >> condition[i]; 
     }
@@ -66,16 +68,17 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
     {
         for (unsigned int i = 0; i < NSD; ++i)
         {
-            unsigned int temp_type;
+            int temp_type;
             double FG;
-            if (fixed_nodes.find(A) == fixed_nodes.end())
+            if (fixed_nodes.find(A) != fixed_nodes.end() &&
+                    dim[count_fixed] == i)
             {
-                temp_type = 0;
-                FG = 0.0;
-            } else {
                 temp_type = types[count_fixed];
                 FG = condition[count_fixed];
                 count_fixed++;
+            } else {
+                temp_type = 0;
+                FG = 0.0;
             }
             switch (temp_type)
             {
@@ -107,32 +110,50 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
     for (unsigned int i = 0; i < F_std.size(); i++)
         F[i] = F_std[i];
     //read in load information
-    num_edge = new int[NEL];
+    num_edge = new int[NEL]();
     face_index = new int*[NEL];
     traction = new double**[NEL];
     std::fstream load_in;
     load_in.open(filename_load_, std::fstream::in);
-    for (unsigned int i = 0; i < NEL; ++i)
+
+    for (unsigned int i = 0; i < NSD; ++i)
+        load_in >> body_f[i];
+
+    std::set<int> ele_loaded;
+    int num_ele_loaded;
+    load_in >> num_ele_loaded;
+    for (unsigned int i = 0; i < num_ele_loaded; ++i)
     {
-        int count;
-        load_in >> count;
-        num_edge[i] = count;
-        if (count == 0)
+        int temp_index;
+        load_in >> temp_index;
+        ele_loaded.insert(temp_index);
+    }
+
+    if (!ele_loaded.empty())
+    {
+        for (unsigned int i = 0; i < NEL; ++i)
         {
-            face_index[i] = new int[1];
-            traction[i] = new double*[1];
-            traction[i][0] = new double[NSD];
-            continue;
-        }
-        face_index[i] = new int[count];
-        traction[i] = new double*[count];
-        for (unsigned int j = 0; j < count; ++j)
-            load_in >> face_index[i][j];
-        for (unsigned int j = 0; j < count; ++j)
-        {
-            traction[i][j] = new double[NSD];
-            for (unsigned int k = 0; k < NSD; ++k)
-                load_in >> traction[i][j][k];
+            if (ele_loaded.find(i) == ele_loaded.end())
+            {
+                num_edge[i] = 0;
+                face_index[i] = new int[1];
+                traction[i] = new double*[1];
+                traction[i][0] = new double[NSD];
+                continue;
+            }
+            int count;
+            load_in >> count;
+            num_edge[i] = count;
+            face_index[i] = new int[count];
+            traction[i] = new double*[count];
+            for (unsigned int j = 0; j < count; ++j)
+                load_in >> face_index[i][j];
+            for (unsigned int j = 0; j < count; ++j)
+            {
+                traction[i][j] = new double[NSD];
+                for (unsigned int k = 0; k < NSD; ++k)
+                    load_in >> traction[i][j][k];
+            }
         }
     }
     load_in.close();
