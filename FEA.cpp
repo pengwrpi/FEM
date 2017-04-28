@@ -120,7 +120,6 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
         load_in >> body_f[i];
 
     std::set<int> ele_loaded;
-    int num_ele_loaded;
     load_in >> num_ele_loaded;
     for (unsigned int i = 0; i < num_ele_loaded; ++i)
     {

@@ -2,9 +2,13 @@
 
 void FEA::Ele_Load()
 {
+    std::cout << "Ele_Load for element " << Ele_ID << " started" << std::endl;
     int nfnodes = nfacenodes(NSD, NEN); 
+    std::cout << "nfnodes is " << nfnodes << std::endl;
+    std::cout << "NEN is " << NEN << std::endl;
     int NSD_face = NSD - 1;
-    int NINT = numberofintegrationpoints(NSD_face, nfnodes);
+    int NINT = numberofintegrationpoints(nfnodes, NSD_face);
+    std::cout << "NINT is " << NINT << std::endl;
     double xi[NSD_face];
     double dxdxi[NSD][NSD_face];
     FE = new double[NSD*NEN]();
@@ -19,16 +23,32 @@ void FEA::Ele_Load()
     for(unsigned int edgeinx = 0; edgeinx < num_edge[Ele_ID]; ++edgeinx)
     {
         int* node_list;
-        std::cout << edgeinx << " " << Ele_ID << std::endl;
+        std::cout << "edgeinx for " << Ele_ID << " is " << edgeinx << " now" << std::endl;
         facenodes(NSD, NEN, face_index[Ele_ID][edgeinx], node_list); 
+        std::cout << "node_lists are" << std::endl;
+        for (unsigned int i = 0; i < nfnodes; ++i)
+            std::cout << node_list[i] << " ";
+        std::cout << std::endl;
+        std::cout << "coords are" << std::endl;
+        for (unsigned int i = 0; i < nfnodes; ++i)
+            std::cout << coord[0][node_list[i]] << " " << coord[1][node_list[i]] << std::endl;;
         for (unsigned int intpt = 0; intpt < NINT; ++intpt)
         {
             for (unsigned int i = 0; i < NSD_face; ++i)
                 xi[i] = xilist[i][intpt];
+            std::cout << "xi[0] = " << xi[0] << std::endl;
             double* N;
             shapefunctions(nfnodes, xi, N, NSD_face);
+            std::cout << "N are " << std::endl;
+            for (unsigned int a = 0; a < nfnodes; ++a)
+                std::cout << N[a] << " ";
+            std::cout << std::endl;
             double** dNdxi;
             shapefunctionderivs(nfnodes, xi, dNdxi, NSD_face);
+            std::cout << "dNdxi are " << std::endl;
+            for (unsigned int a = 0; a < nfnodes; ++a)
+                std::cout << dNdxi[a][0] << " ";
+            std::cout << std::endl;
             //compute jacobian matrix & its determinant
             for (unsigned int i = 0; i < NSD; ++i)
             {
@@ -36,17 +56,25 @@ void FEA::Ele_Load()
                 {
                     dxdxi[i][j] = 0.0;
                     for (unsigned int a = 0; a < nfnodes; ++a)
-                        dxdxi[i][j] += coord[i][a] * dNdxi[a][j];
+                        //dxdxi[i][j] += coord[i][a] * dNdxi[a][j];
+                        dxdxi[i][j] += coord[i][node_list[a]] * dNdxi[a][j];
                 }
             }
+            std::cout << "dxdxi are " << std::endl;
+            for (unsigned int i = 0; i < NSD ; ++i)
+                std::cout << dxdxi[i][0] << " ";
+            std::cout << std::endl;
+
             double dt = sqrt(dxdxi[0][0] * dxdxi[0][0] +
                              dxdxi[1][0] * dxdxi[1][0]);
+            std::cout << "dt is " << dt << std::endl;
             for (unsigned int a = 0; a < nfnodes; ++a)
             {
                 for (unsigned int i = 0; i < NSD; ++i)
                 {
                     int row = NSD * node_list[a] + i;
                     FE[row] += N[a] * traction[Ele_ID][edgeinx][i] * w[intpt] * dt;
+                    std::cout << "FE[" << row << "]" << " = " << FE[row] << std::endl;
                 }
             }
             for (unsigned int a = 0; a < nfnodes; ++a)
@@ -56,6 +84,9 @@ void FEA::Ele_Load()
         delete[] node_list;
     }
     std::cout << "Ele_Load for element " << Ele_ID << " is done" << std::endl;
+    for (unsigned int i = 0; i < NSD*NEN; ++i)
+        std::cout << FE[i] << " ";
+    std::cout << std::endl;
     //clean xilist, w
     for (unsigned int i = 0; i < NSD_face; ++i)
         delete[] xilist[i];

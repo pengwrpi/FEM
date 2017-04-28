@@ -121,7 +121,9 @@ void FEA::Ele_Stiff()
         for (unsigned int rows = 0; rows < NEN; ++rows)
         {
             for (unsigned int cols = 0; cols < NSD; ++cols)
+            {
                 std::cout << dNdx[rows][cols] << " ";
+            }
             std::cout << std::endl;
         }
         //double**** dsde;
@@ -177,7 +179,11 @@ void FEA::Ele_Stiff()
     for (unsigned int a = 0; a < NEN*NSD; ++a)
     {
         for (unsigned int b = 0; b < NEN*NSD; ++b)
+        {
+            //if (KE[a][b] <= 1e-10)
+              //  KE[a][b] = 0.0;
             std::cout << KE[a][b] << " ";
+        }
         std::cout << std::endl;
     }
     //clean xilist, w, dsde 

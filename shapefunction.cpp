@@ -13,7 +13,7 @@ int FEA::numberofintegrationpoints(const int& NEN_, const int& NSD_)
                 return 4;
                 break;
             case 6:
-                return 3;
+                return 4;
                 break;
             case 8:
                 return 9;
@@ -40,12 +40,12 @@ void FEA::integrationpoints(const int& NEN_, const int& NINT, double**& xi, cons
             }
             if (NINT == 3)
             {
-                xi[0][0] = 0.6;
-                xi[1][0] = 0.2;
-                xi[0][1] = 0.2;
-                xi[1][1] = 0.6;
-                xi[0][2] = 0.2;
-                xi[1][2] = 0.2;
+                xi[0][0] = 1.0/6.0;
+                xi[1][0] = 1.0/6.0;
+                xi[0][1] = 2.0/3.0;
+                xi[1][1] = 1.0/6.0;
+                xi[0][2] = 1.0/6.0;
+                xi[1][2] = 2.0/3.0;
             }
             if (NINT == 4)
             {
@@ -111,8 +111,8 @@ void FEA::integrationpoints(const int& NEN_, const int& NINT, double**& xi, cons
                 break;
             case 3:
                 xi[0][0] = -0.7745966692;
-                xi[0][1] = 0.0;
-                xi[0][2] = -xi[0][0];
+                xi[0][2] = 0.0;
+                xi[0][1]= -xi[0][0];
                 break;
         }
     }
@@ -131,9 +131,9 @@ void FEA::integrationweights(const int& NEN_, const int& NINT, double*& w, const
             }
             if (NINT == 3)
             {
-                w[0] = 1.0/6.0;
-                w[1] = 1.0/6.0;
-                w[2] = 1.0/6.0;
+                w[0] = 1.0/3.0;
+                w[1] = 1.0/3.0;
+                w[2] = 1.0/3.0;
             }
             if (NINT == 4)
             {
@@ -184,8 +184,8 @@ void FEA::integrationweights(const int& NEN_, const int& NINT, double*& w, const
                 break;
             case 3:
                 w[0] = 0.555555555555;
-                w[1] = 0.888888888888;
-                w[2] = 0.555555555555;
+                w[2] = 0.888888888888;
+                w[1] = 0.555555555555;
                 break;
         }
     }
@@ -282,9 +282,9 @@ void FEA::shapefunctionderivs(const int& NEN_, const double* xi, double**& dNdxi
                     dNdxi[3][0] = 4.0 * xi[1];
                     dNdxi[3][1] = 4.0 * xi[0];
                     dNdxi[4][0] = -4.0 * xi[1]; 
-                    dNdxi[4][1] = -4.0 * xi[0];
-                    dNdxi[5][0] = 4.0 * x3 - 4.0 * xi[0];
-                    dNdxi[5][1] = 4.0 * x3 - 4.0 * xi[1];
+                    dNdxi[4][1] = -4.0 * xi[0] + 4.0 - 8.0 * xi[1];
+                    dNdxi[5][0] = 4.0 - 8.0 * xi[0] - 4.0 * xi[1]; 
+                    dNdxi[5][1] = -4.0 * xi[0]; 
                     break;
                 }
             case 4:

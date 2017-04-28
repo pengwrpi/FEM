@@ -36,6 +36,7 @@ class FEA {
         double* FE;
         int Ele_ID;
         double body_f[3];
+        int num_ele_loaded;
         int* num_edge;
         int** face_index;
         double*** traction;

@@ -1,11 +1,17 @@
 #include "FEA.h"
+#include <Eigen/Dense>
 
 void FEA::SolveEq()
 {
     SpMat K(NDOF, NDOF);
+    std::cout << "NDOF = " << NDOF << std::endl;
     K.setFromTriplets(Coeff.begin(), Coeff.end());
     Eigen::SimplicialCholesky<SpMat> chol(K);
     d = chol.solve(F);
+    std::cout << "load vector is" << std::endl;
+    for (unsigned int i = 0; i < NDOF; ++i)
+        std::cout << F[i] << std::endl;
+    std::cout << Eigen::MatrixXd(K) << std::endl;
 #if 1 
     for (unsigned int i = 0; i < NDOF; ++i)
         std::cout << d[i] << " ";

@@ -9,6 +9,7 @@ void FEA::Analysis()
         ReadEle(e);
         Ele_Stiff();
         Ele_Load();
+        Ele_body();
         Assemble();
         //clean the variable associated with elements
         for (unsigned int i = 0; i < NSD; ++i)
@@ -56,14 +57,17 @@ void FEA::Analysis()
         delete[] ID[i];
     }
     delete[] ID;
-    for (unsigned int i = 0; i < NEL; ++i)
+    if (num_ele_loaded != 0)
     {
-        delete[] face_index[i];
-        if (num_edge[i] == 0)
-            delete[] traction[i][0];
-        for (unsigned int j = 0; j < num_edge[i]; ++j)
-            delete[] traction[i][j];
-        delete[] traction[i];
+        for (unsigned int i = 0; i < NEL; ++i)
+        {
+            delete[] face_index[i];
+            if (num_edge[i] == 0)
+                delete[] traction[i][0];
+            for (unsigned int j = 0; j < num_edge[i]; ++j)
+                delete[] traction[i][j];
+            delete[] traction[i];
+        }
     }
     delete[] num_edge;
     delete[] face_index;

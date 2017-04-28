@@ -5,7 +5,6 @@ void FEA::ReadEle(const pMeshEnt& e)
     //read(NEN, IEN, coord)
     coord = new double*[NSD];
     NEN = pumi_ment_getTopo(e) + 1;
-    std::cout << "NEN = " << NEN << std::endl;
     std::vector<pMeshEnt> adj;
     pumi_ment_getAdj(e, 0, adj);
     if (ele_type.compare("quadratic") == 0)
@@ -15,6 +14,7 @@ void FEA::ReadEle(const pMeshEnt& e)
         pumi_ment_getAdj(e, 1, adj_edge);
         adj.insert(adj.end(), adj_edge.begin(), adj_edge.end());
     } 
+    std::cout << "NEN = " << NEN << std::endl;
     //initialize IEN, coord
     for (unsigned int i = 0; i < NSD; ++i)
         coord[i] = new double[NEN];
