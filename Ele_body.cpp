@@ -1,10 +1,10 @@
 #include "FEA.h"
 
+//This function calculate element load vector contributed by body force
+
 void FEA::Ele_body()
 {
-    //body force
     int NINT = numberofintegrationpoints(NEN, NSD);
-    //FE = new double[NSD*NEN]();
     double** xilist;
     double* w;
     integrationpoints(NEN, NINT, xilist, NSD);
@@ -15,6 +15,7 @@ void FEA::Ele_body()
         double xi[NSD];
         for (unsigned int i = 0; i < NSD; ++i)
             xi[i] = xilist[i][intpt];
+        //compute shape functions and derivatives
         double* N;
         shapefunctions(NEN, xi, N, NSD);
         double** dNdxi;

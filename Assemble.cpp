@@ -1,5 +1,6 @@
 #include "FEA.h"
 
+//Assemble the global stiffness and load vector
 void FEA::Assemble()
 {
     int p = 0;
@@ -10,9 +11,7 @@ void FEA::Assemble()
             if (LM[i][a][0] == 0) //if dof
             {
                 int P = LM[i][a][1];
-                std::cout << "after F[P], P = " << P << std::endl;
                 F[P] += FE[p];
-                std::cout << "after F[P], P = " << P << "F[P] = " << FE[p] << std::endl;
                 int q = 0;
                 for (unsigned int b = 0; b < NEN; ++b)
                 {
@@ -21,16 +20,13 @@ void FEA::Assemble()
                         if (LM[j][b][0] == 0)//if dof
                         {
                             int Q = LM[j][b][1];
-                            //K[P][Q] += KE[p][q];
-                            std::cout << "pushed back " << P << " " << Q << " " << KE[p][q] << std::endl;
+                            //store the information needed for global stiffness matrix
                             Coeff.push_back(T(P, Q, KE[p][q]));
-                            std::cout << "pushed back " << P << " " << Q << " " << KE[p][q] << std::endl;
                         }
                         if (LM[j][b][0] == 1) //if dog
                         {
                             int Q = LM[j][b][1];
                             F[P] -= G[Q] * KE[p][q];
-                            std::cout << "when F[P], P = " << P << std::endl;
                         }
                         q++;
                     }

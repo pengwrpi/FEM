@@ -1,5 +1,6 @@
 #include "FEA.h"
 
+//compute the element stiffness matrix
 void FEA::Ele_Stiff()
 /********************************************************************************/
 {
@@ -16,6 +17,7 @@ void FEA::Ele_Stiff()
         }
     }
 
+    //determine Location matrix
     for (unsigned int a = 0; a < NEN; ++a)
     {
         unsigned int A = IEN[a];
@@ -31,6 +33,7 @@ void FEA::Ele_Stiff()
         std::cout << LM[0][a][0] << " " << LM[0][a][1] << " " <<
             LM[1][a][0] << " " << LM[1][a][1] << std::endl;
 
+    //initialize the element stiffness matrix
     int NEE = NEN * NSD;
     KE = new double*[NEE];
     for (unsigned int i = 0; i < NEE; ++i)
@@ -91,6 +94,7 @@ void FEA::Ele_Stiff()
         }
         double dt = dxdxi[0][0] * dxdxi[1][1] - dxdxi[0][1] * dxdxi[1][0];
         std::cout << "dt = " << dt << std::endl;
+        //compute the inverse of dxidx
         double dxidx[NSD][NSD];
         dxidx[0][0] = dxdxi[1][1] / dt;
         dxidx[0][1] = -dxdxi[0][1] / dt;
@@ -126,27 +130,6 @@ void FEA::Ele_Stiff()
             }
             std::cout << std::endl;
         }
-        //double**** dsde;
-        //materialstiffness(NSD, materialprops, dsde);    
-        //std::cout << "dsde is calculated" << std::endl;
-#if 0
-        for (unsigned int a = 0; a < NSD; ++a)
-        {
-            for (unsigned int b = 0; b < NSD; ++b)
-            {
-                for (unsigned int c = 0; c < NSD; ++c)
-                {
-                    for (unsigned int d = 0; d < NSD; ++d)
-                    {
-                        std::cout << dsde[c][d][b][a] << " ";
-                    }
-                    std::cout << std::endl;
-                }
-                std::cout << std::endl;
-            }
-            std::cout << std::endl;
-        }
-#endif
 
         for (unsigned int a = 0; a < NEN; ++a)
         {
@@ -179,11 +162,7 @@ void FEA::Ele_Stiff()
     for (unsigned int a = 0; a < NEN*NSD; ++a)
     {
         for (unsigned int b = 0; b < NEN*NSD; ++b)
-        {
-            //if (KE[a][b] <= 1e-10)
-              //  KE[a][b] = 0.0;
             std::cout << KE[a][b] << " ";
-        }
         std::cout << std::endl;
     }
     //clean xilist, w, dsde 

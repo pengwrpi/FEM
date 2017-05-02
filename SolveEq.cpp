@@ -5,18 +5,17 @@ void FEA::SolveEq()
 {
     SpMat K(NDOF, NDOF);
     std::cout << "NDOF = " << NDOF << std::endl;
+    //Assemble the global stiffness matrix from Coeff
     K.setFromTriplets(Coeff.begin(), Coeff.end());
     Eigen::SimplicialCholesky<SpMat> chol(K);
+    //solve the equation to get displacement vector
     d = chol.solve(F);
-    std::cout << "load vector is" << std::endl;
+    std::cout << "global load vector is" << std::endl;
     for (unsigned int i = 0; i < NDOF; ++i)
         std::cout << F[i] << std::endl;
+    std::cout << "global stiffness matrix is" << std::endl;
     std::cout << Eigen::MatrixXd(K) << std::endl;
-#if 1 
-    for (unsigned int i = 0; i < NDOF; ++i)
-        std::cout << d[i] << " ";
-    std::cout << std::endl;
-#endif
+
     double** displacement = new double*[NNP];
     for (unsigned int i = 0; i < NNP; ++i)
         displacement[i] = new double[2];

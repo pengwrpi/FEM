@@ -2,7 +2,7 @@
 
 void FEA::ReadEle(const pMeshEnt& e)
 {
-    //read(NEN, IEN, coord)
+    //set NEN, IEN, coord by PUMI library function
     coord = new double*[NSD];
     NEN = pumi_ment_getTopo(e) + 1;
     std::vector<pMeshEnt> adj;

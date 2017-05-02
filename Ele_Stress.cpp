@@ -1,6 +1,9 @@
 #include "FEA.h"
 
-void FEA::Ele_Stress()
+//This function compute stress and strain at integration points
+//And output the result to the FEA_result.txt 
+
+void FEA::Ele_Stress(std::fstream& resultout)
 {
     double**** dsde;
     materialstiffness(NSD, materialprops, dsde);
@@ -49,8 +52,20 @@ void FEA::Ele_Stress()
             std::cout << DE[i][a] << " "; 
         std::cout << std::endl;
     }
+    resultout << "NEN for " << Ele_ID << " is" << std::endl; 
+    resultout << NEN << std::endl;
+    resultout << "IEN for " << Ele_ID << std::endl; 
+    for (unsigned int a = 0; a < NEN; ++a)
+        resultout << IEN[a] << " ";
+    resultout << std::endl;
+    resultout << "coord for " << Ele_ID << std::endl;
+    for (unsigned int a = 0; a < NEN; ++a)
+        resultout << coord[0][a] << " " << coord[1][a] << std::endl;
+    resultout << "DE for " << Ele_ID << std::endl;
+    for (unsigned int a = 0; a < NEN; ++a)
+        resultout << DE[0][a] << " " << DE[1][a] << std::endl;
         
-    std::cout << "Element " << Ele_ID << "strain stress" << std::endl;
+    std::cout << "Element " << Ele_ID << " strain stress" << std::endl;
     int npoints = numberofintegrationpoints(NEN, NSD);
     std::cout << "npoints for element " << Ele_ID << " is " << npoints << std::endl;
     double** xilist;
@@ -58,8 +73,9 @@ void FEA::Ele_Stress()
     std::cout << "integration points for element " << Ele_ID << std::endl;
     for (unsigned int i = 0; i < npoints; ++i)
         std::cout << xilist[0][i] << " " << xilist[1][i] << std::endl;
+    resultout << "strain stress results for " << Ele_ID << " are shown below" << std::endl;
     for (unsigned int intpt = 0; intpt < npoints; ++intpt)
-    {
+    {// loop through all the integration points
         double xi[NSD];
         for (unsigned int i = 0; i < NSD; ++i)
             xi[i] = xilist[i][intpt];
@@ -154,8 +170,8 @@ void FEA::Ele_Stress()
                 }
             }
         }
-        std::cout << "intpt " << intpt << " " << x[0] << " " << x[1] << " ";
-        std::cout << strain[0][0] << " " << strain[0][1] << " "
+        resultout << intpt << " " << x[0] << " " << x[1] << " ";
+        resultout << strain[0][0] << " " << strain[0][1] << " "
                   << strain[1][0] << " " << strain[1][1] << " "   
                   << stress[0][0] << " " << stress[0][1] << " "
                   << stress[1][0] << " " << stress[1][1] << " " << std::endl;

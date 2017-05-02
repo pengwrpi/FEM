@@ -2,6 +2,9 @@
 #include <algorithm>
 #include "FEA.h"
 
+
+//Reorder node of mesh to minimize calculation cost of solving the global equation 
+
 void enqueue_list(std::list<pMeshEnt>& equeue, pMeshEnt& e) {
     //determine if the e already exists
     //if not, push it back

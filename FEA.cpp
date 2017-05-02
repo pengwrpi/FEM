@@ -3,18 +3,23 @@
 #include <string>
 #include <set>
 
+//constructor, similar to setup in the pseudo code provide in class
+//determine global variables, such as, NNP, NSD, ID  
+//Initialize the global stiffness matrix and load vectors
+//Readin the load information and restriction condition of dof
+
 FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_load_)
-                
 /********************************************************************************/
 {
-    geom = pumi_geom_load(NULL, "null");
+    geom = pumi_geom_load(NULL, "null");//This program is operated off geom model
     mesh = pumi_mesh_load(geom, mesh_file, 1);
     std::cout << "mesh dimension is " << pumi_mesh_getDim(mesh) << std::endl;
     std::fstream read_in;
     read_in.open(filename_in, std::fstream::in);
-    read_in >> ele_type;
+    read_in >> ele_type;//firstly read in element type linear or quadratic
     if (ele_type.compare("quadratic") == 0)
     {
+        //if the mesh is quadratic, change shape functions
         pumi_mesh_setShape(mesh, pumi_shape_getSerendipity());
         NNP = pumi_mesh_getNumEnt(mesh, 0) + pumi_mesh_getNumEnt(mesh, 1);
     } else if (ele_type.compare("linear") == 0) {
@@ -32,10 +37,12 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
 
     int num_nodes_fix;
 
+    //read in how many nodes that have non-dog or zero-dog
     read_in >> num_nodes_fix;
+    //put those nodes with dog into a std set
     std::set<int> fixed_nodes;
-    int dim[num_nodes_fix];
-    int types[num_nodes_fix];
+    int dim[num_nodes_fix];// x = 0, y = 1
+    int types[num_nodes_fix];//dof = 0; non-zero dog = 1; zero dog = 2
     double condition[num_nodes_fix];
 
     for(unsigned int i = 0; i < num_nodes_fix; ++i)
@@ -53,6 +60,7 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
     NEL = pumi_mesh_getNumEnt(mesh, NSD);
     NDOF = 0;
     NDOG = 0;
+    //initialize ID matrix NSD * NNP * 2
     ID = new int**[NSD];
     for (unsigned int i = 0; i < NSD; ++i)
     {
@@ -73,10 +81,13 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
             if (fixed_nodes.find(A) != fixed_nodes.end() &&
                     dim[count_fixed] == i)
             {
+                //if the element is in the set fixed_nodes
+                //assign appropriate value
                 temp_type = types[count_fixed];
                 FG = condition[count_fixed];
                 count_fixed++;
             } else {
+                //otherwise, it should be dof
                 temp_type = 0;
                 FG = 0.0;
             }
@@ -105,6 +116,7 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
     for (unsigned int i = 0; i < NNP; ++i)
         std::cout << ID[0][i][0] << " " << ID[0][i][1] << " "
             << ID[1][i][0] << " " << ID[1][i][1] << std::endl;
+    //convert the std vector F_std to "Eigen" vector F
     F = Eigen::VectorXd::Zero(F_std.size());
     std::cout << "Force size " << F_std.size() << std::endl;
     for (unsigned int i = 0; i < F_std.size(); i++)
@@ -116,9 +128,12 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
     std::fstream load_in;
     load_in.open(filename_load_, std::fstream::in);
 
+    //store the body force information
+    //Currently, assume body force is uniform within whole mesh
     for (unsigned int i = 0; i < NSD; ++i)
         load_in >> body_f[i];
 
+    //ele_loaded is the set of elements loaded by traction
     std::set<int> ele_loaded;
     load_in >> num_ele_loaded;
     for (unsigned int i = 0; i < num_ele_loaded; ++i)
@@ -134,12 +149,18 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
         {
             if (ele_loaded.find(i) == ele_loaded.end())
             {
+                //if element i is not in the set,
+                //simply set everything to be zero
                 num_edge[i] = 0;
                 face_index[i] = new int[1];
                 traction[i] = new double*[1];
                 traction[i][0] = new double[NSD];
                 continue;
             }
+            //if element i is in the set
+            //readin number of edges loaded (num_edge)
+            //face_index loaded
+            //and traction for each loaded edge
             int count;
             load_in >> count;
             num_edge[i] = count;
@@ -156,6 +177,7 @@ FEA::FEA(const char* mesh_file, const char* filename_in, const char* filename_lo
         }
     }
     load_in.close();
+    //output the load_in
     for (unsigned int i = 0; i < NEL; ++i)
     {
         if (num_edge[i] != 0)

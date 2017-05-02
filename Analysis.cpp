@@ -1,14 +1,19 @@
 #include "FEA.h"
+
+//This is the "main" function which actually runs the FEA
 void FEA::Analysis()
 {
+    //firstly reorder
     Reorder();
     pMeshIter it = mesh->begin(NSD);
     pMeshEnt e;
     while ((e = mesh->iterate(it)))
-    {
+    {//loop through all the elements
+     // and calculate element stiffness matrix
+     // load vector and assemble it
         ReadEle(e);
         Ele_Stiff();
-        Ele_Load();
+        Ele_Traction();
         Ele_body();
         Assemble();
         //clean the variable associated with elements
@@ -29,13 +34,19 @@ void FEA::Analysis()
         delete[] FE;
     }
     mesh->end(it);
+
+    //solving the equation
     SolveEq();
 
+    //create the file which stores the displacement 
+    //stress and strain at the integration points
+    std::fstream resultfs;
+    resultfs.open("FEA_result.txt", std::fstream::out);
     it = mesh->begin(NSD);
     while ((e = mesh->iterate(it)))
-    {
+    {//loop through all the element
         ReadEle(e);
-        Ele_Stress();
+        Ele_Stress(resultfs);
         //clean the variable associated with elements
         for (unsigned int i = 0; i < NSD; ++i)
             delete[] coord[i];
@@ -49,6 +60,8 @@ void FEA::Analysis()
         }
         delete[] LM;
     }
+    mesh->end(it);
+    resultfs.close();
     //clean the "global" variable
     for (unsigned int i = 0; i < NSD; ++i)
     {
