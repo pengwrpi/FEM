@@ -1,0 +1,39 @@
+This is the Finite Element Analysis Code used for 2D linear elastic problem.
+The FEA.h is the header file for the class FEA, FEA.cpp is the constructor.
+FEA_main.cpp is the file where main function is.
+All other *.cpp files are the member functions of FEA, except that shapefunction.cpp
+stores all the shapefunction, shapefunction derivatives and integration rules.
+Please look at CMakeLists.txt about how the program is compiled.
+
+Three command line arguments are needed, i.e., mesh file, Element_info.txt, Load_info.txt.
+Below are the format of the files.
+
+The first command line argument should be mesh file name.
+
+The format of the Element_info.txt file, which should be the second command line argument.
+<type> (linear or quadratic)
+<G nu planestrain/stress>
+<number of nodes with restricted dof>
+<node#> <dim> <type> <condition>
+<node#> <dim> <type> <condition>
+.
+.
+.
+.
+<node#> <dim> <type> <condition>
+
+
+The format of the load_info.txt file, which should be the third command line argument.
+<body_f[0] body_f[1]>
+<number of elements loaded by traction>
+<lsit of indices of elements loaded by traction>
+<number of edges loaded> <list of these edges> <traction[0]> <traction[1]> ...<traction[0]> <traction[1]> 
+<number of edges loaded> <list of these edges> <traction[0]> <traction[1]> ...<traction[0]> <traction[1]> 
+.
+.
+.
+.
+<number of edges loaded> <list of these edges> <traction[0]> <traction[1]> ...<traction[0]> <traction[1]> 
+
+The results are written in the file FEA_result.txt
+Displacement of nodes, stress and strain at each integration points are listed.
