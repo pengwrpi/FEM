@@ -1,0 +1,17 @@
+a1triangle_bigger.cc: the file to create the mesh with triangle elements
+a1quad.cc: the code to create mesh with quadilateral elements
+
+At this moment, both of them could only create rectangular model
+
+both take 7 command line arguments:
+
+<number of vertices in x direction>
+<number of vertices in y direction>
+<length of x direction>
+<length of y direction>
+<linear or quadratic element>
+<filename of mesh created>
+
+Compilation:
+    ./setup_right.sh
+    ./build.sh a1quad/a1triangle_bigger

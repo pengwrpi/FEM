@@ -1,2 +1,0 @@
-/usr/bin/ar qc libfep.a  CMakeFiles/fep.dir/Reorder.cpp.o
-/usr/bin/ranlib libfep.a

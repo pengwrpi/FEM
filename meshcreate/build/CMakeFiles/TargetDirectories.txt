@@ -1,6 +1,0 @@
-/home/wei/Documents/FiniteElementProgramming/TermProject/meshcreate/build/CMakeFiles/edit_cache.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/meshcreate/build/CMakeFiles/rebuild_cache.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/meshcreate/build/CMakeFiles/fep.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/meshcreate/build/CMakeFiles/a1quad.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/meshcreate/build/CMakeFiles/a1triangle.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/meshcreate/build/CMakeFiles/a1triangle_bigger.dir

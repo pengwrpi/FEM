@@ -1,4 +1,0 @@
-/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/edit_cache.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/rebuild_cache.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/FEA_main.dir
-/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir
