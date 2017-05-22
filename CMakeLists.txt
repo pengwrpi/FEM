@@ -31,7 +31,7 @@ set(SOURCES
     shapefunction.cpp
     Analysis.cpp
     Assemble.cpp
-    Ele_Load.cpp
+    Ele_Traction.cpp
     Ele_body.cpp
     Ele_Stiff.cpp
     ReadEle.cpp

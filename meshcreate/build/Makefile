@@ -111,19 +111,6 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named a1quad
-
-# Build rule for target.
-a1quad: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 a1quad
-.PHONY : a1quad
-
-# fast build rule for target.
-a1quad/fast:
-	$(MAKE) -f CMakeFiles/a1quad.dir/build.make CMakeFiles/a1quad.dir/build
-.PHONY : a1quad/fast
-
-#=============================================================================
 # Target rules for targets named fep
 
 # Build rule for target.
@@ -137,6 +124,19 @@ fep/fast:
 .PHONY : fep/fast
 
 #=============================================================================
+# Target rules for targets named a1quad
+
+# Build rule for target.
+a1quad: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 a1quad
+.PHONY : a1quad
+
+# fast build rule for target.
+a1quad/fast:
+	$(MAKE) -f CMakeFiles/a1quad.dir/build.make CMakeFiles/a1quad.dir/build
+.PHONY : a1quad/fast
+
+#=============================================================================
 # Target rules for targets named a1triangle
 
 # Build rule for target.
@@ -148,6 +148,19 @@ a1triangle: cmake_check_build_system
 a1triangle/fast:
 	$(MAKE) -f CMakeFiles/a1triangle.dir/build.make CMakeFiles/a1triangle.dir/build
 .PHONY : a1triangle/fast
+
+#=============================================================================
+# Target rules for targets named a1triangle_bigger
+
+# Build rule for target.
+a1triangle_bigger: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 a1triangle_bigger
+.PHONY : a1triangle_bigger
+
+# fast build rule for target.
+a1triangle_bigger/fast:
+	$(MAKE) -f CMakeFiles/a1triangle_bigger.dir/build.make CMakeFiles/a1triangle_bigger.dir/build
+.PHONY : a1triangle_bigger/fast
 
 Reorder.o: Reorder.cpp.o
 
@@ -230,6 +243,33 @@ a1triangle.cc.s:
 	$(MAKE) -f CMakeFiles/a1triangle.dir/build.make CMakeFiles/a1triangle.dir/a1triangle.cc.s
 .PHONY : a1triangle.cc.s
 
+a1triangle_bigger.o: a1triangle_bigger.cc.o
+
+.PHONY : a1triangle_bigger.o
+
+# target to build an object file
+a1triangle_bigger.cc.o:
+	$(MAKE) -f CMakeFiles/a1triangle_bigger.dir/build.make CMakeFiles/a1triangle_bigger.dir/a1triangle_bigger.cc.o
+.PHONY : a1triangle_bigger.cc.o
+
+a1triangle_bigger.i: a1triangle_bigger.cc.i
+
+.PHONY : a1triangle_bigger.i
+
+# target to preprocess a source file
+a1triangle_bigger.cc.i:
+	$(MAKE) -f CMakeFiles/a1triangle_bigger.dir/build.make CMakeFiles/a1triangle_bigger.dir/a1triangle_bigger.cc.i
+.PHONY : a1triangle_bigger.cc.i
+
+a1triangle_bigger.s: a1triangle_bigger.cc.s
+
+.PHONY : a1triangle_bigger.s
+
+# target to generate assembly for a file
+a1triangle_bigger.cc.s:
+	$(MAKE) -f CMakeFiles/a1triangle_bigger.dir/build.make CMakeFiles/a1triangle_bigger.dir/a1triangle_bigger.cc.s
+.PHONY : a1triangle_bigger.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,10 +277,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... a1quad"
-	@echo "... fep"
 	@echo "... rebuild_cache"
+	@echo "... fep"
+	@echo "... a1quad"
 	@echo "... a1triangle"
+	@echo "... a1triangle_bigger"
 	@echo "... Reorder.o"
 	@echo "... Reorder.i"
 	@echo "... Reorder.s"
@@ -250,6 +291,9 @@ help:
 	@echo "... a1triangle.o"
 	@echo "... a1triangle.i"
 	@echo "... a1triangle.s"
+	@echo "... a1triangle_bigger.o"
+	@echo "... a1triangle_bigger.i"
+	@echo "... a1triangle_bigger.s"
 .PHONY : help
 
 

@@ -37,3 +37,6 @@ The format of the load_info.txt file, which should be the third command line arg
 
 The results are written in the file FEA_result.txt
 Displacement of nodes, stress and strain at each integration points are listed.
+
+NOTE: In Element_info.txt and Load_info.txt, all the indices are the numbering obtained after
+      reordering.

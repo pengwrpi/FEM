@@ -1,26 +1,36 @@
 #include <PCU.h>
 #include <pumi.h>
 #include <iostream>
+#include <cstdlib>
 #include "createmesh.h"
 
 int main(int argc, char** argv)
 {
+  if (argc != 7)
+  {
+      perror("wrong number of argv");
+      exit(1);
+  }
   MPI_Init(&argc,&argv);
   pumi_start();
   pGeom geom = pumi_geom_load(NULL, "null");
   pMesh mesh = pumi_mesh_create(geom, 2);
 
   //for this specific problem, we know there are 5*7 = 35 vertices
-  int x = 100;
-  int y = 2;
+  int x = atoi(argv[1]);
+  int y = atoi(argv[2]);
+  double len_x = atof(argv[3]);
+  double len_y = atof(argv[4]);
   pMeshEnt vertices[x * y]; 
+  double dx = len_x/(x-1);
+  double dy = len_y/(y-1);
 
   //create the vertices at the assigned positions
   for (unsigned int i = 0; i < x * y; ++i)
   {
     double points[3];
-    points[0] = (i - i/x*x)*1.0;
-    points[1] = (i/x)*1.0;
+    points[0] = (i - i/x*x)*dx;
+    points[1] = (i/x)*dy;
     points[2] = 0.0;
     vertices[i] = pumi_mesh_createVtx(mesh, NULL, points);
     double temp[3];
@@ -63,12 +73,18 @@ int main(int argc, char** argv)
   pumi_mesh_freeze(mesh);
   pumi_mesh_verify(mesh);
 
-  Reorder(mesh, "linear");
+  if (strcmp(argv[5], "quadratic") == 0)
+      pumi_mesh_setShape(mesh, pumi_shape_getSerendipity());
+
+  Reorder(mesh, argv[5]);
 
       
+  char mesh_name[100];
+  strcpy(mesh_name, argv[6]);
+  strcat(mesh_name, ".smb");
 
-  pumi_mesh_write(mesh,"outQuad.smb");
-  pumi_mesh_write(mesh,"outQuad","vtk");
+  pumi_mesh_write(mesh,mesh_name);
+  pumi_mesh_write(mesh,argv[6],"vtk");
   pumi_mesh_delete(mesh);
   pumi_finalize();
   MPI_Finalize();

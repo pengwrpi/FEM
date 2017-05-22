@@ -1,7 +1,7 @@
 No._material_props:    3
     Shear_modulus:   10.
     Poissons_ratio:  0.3
-    Plane_strain/stress: 1 
+    Plane_strain/stress: 0
 No._coords_per_node:   2
 No._DOF_per_node:      2
 No._nodes:             200 
@@ -316,4 +316,4 @@ Node_#, DOF#, Value:
    200  2  0.0
 No._elements_with_prescribed_loads: 1 
 Element_#, Face_#, Traction_components
-1 2 1.0 0.0
+1 2 0.0 1.0

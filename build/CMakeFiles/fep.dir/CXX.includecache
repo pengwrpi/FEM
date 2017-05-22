@@ -14,15 +14,19 @@ FEA.h
 FEA.h
 /home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
 
-/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Load.cpp
-FEA.h
-/home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
-
 /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Stiff.cpp
 FEA.h
 /home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
 
 /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Stress.cpp
+FEA.h
+/home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
+
+/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Traction.cpp
+FEA.h
+/home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
+
+/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_body.cpp
 FEA.h
 /home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
 
@@ -32,6 +36,8 @@ FEA.h
 fstream
 -
 string
+-
+set
 -
 
 /home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
@@ -65,6 +71,8 @@ FEA.h
 /home/wei/Documents/FiniteElementProgramming/TermProject/SolveEq.cpp
 FEA.h
 /home/wei/Documents/FiniteElementProgramming/TermProject/FEA.h
+Eigen/Dense
+-
 
 /home/wei/Documents/FiniteElementProgramming/TermProject/shapefunction.cpp
 FEA.h

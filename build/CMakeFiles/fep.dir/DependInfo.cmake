@@ -6,9 +6,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wei/Documents/FiniteElementProgramming/TermProject/Analysis.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Analysis.cpp.o"
   "/home/wei/Documents/FiniteElementProgramming/TermProject/Assemble.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Assemble.cpp.o"
-  "/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Load.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Ele_Load.cpp.o"
   "/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Stiff.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Ele_Stiff.cpp.o"
   "/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Stress.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Ele_Stress.cpp.o"
+  "/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Traction.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Ele_Traction.cpp.o"
+  "/home/wei/Documents/FiniteElementProgramming/TermProject/Ele_body.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Ele_body.cpp.o"
   "/home/wei/Documents/FiniteElementProgramming/TermProject/FEA.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/FEA.cpp.o"
   "/home/wei/Documents/FiniteElementProgramming/TermProject/ReadEle.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/ReadEle.cpp.o"
   "/home/wei/Documents/FiniteElementProgramming/TermProject/Reorder.cpp" "/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles/fep.dir/Reorder.cpp.o"

@@ -24,8 +24,8 @@ CMAKE_BUILD_TYPE:STRING=
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
 
-//No help, variable specified on the command line.
-CMAKE_CXX_COMPILER:UNINITIALIZED=mpicxx
+//CXX compiler
+CMAKE_CXX_COMPILER:STRING=/usr/bin/mpicxx
 
 //Flags used by the compiler during all build types.
 CMAKE_CXX_FLAGS:STRING=-g
@@ -170,9 +170,6 @@ MPIRUN:FILEPATH=/usr/bin/mpirun
 
 //the command line flag to give process count to MPIRUN
 MPIRUN_PROCFLAG:STRING=-np
-
-//Dependencies for target
-Reorder.cpp_LIB_DEPENDS:STATIC=
 
 //The directory containing a CMake configuration file for SCOREC.
 SCOREC_DIR:PATH=/home/wei/Downloads/installer/scorec/install/lib/cmake/SCOREC

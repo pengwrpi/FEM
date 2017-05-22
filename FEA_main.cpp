@@ -15,9 +15,5 @@ int main(int argc, char** argv)
     FEA project(argv[1], argv[2], argv[3]); 
     project.Analysis();
 
-//        clean LM, IEN, coord, KE, materialsprop,traction, FE;
-
-
-  //  clean ID;
     return 0;
 }

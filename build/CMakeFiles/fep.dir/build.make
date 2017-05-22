@@ -153,33 +153,57 @@ CMakeFiles/fep.dir/Assemble.cpp.o.provides: CMakeFiles/fep.dir/Assemble.cpp.o.re
 CMakeFiles/fep.dir/Assemble.cpp.o.provides.build: CMakeFiles/fep.dir/Assemble.cpp.o
 
 
-CMakeFiles/fep.dir/Ele_Load.cpp.o: CMakeFiles/fep.dir/flags.make
-CMakeFiles/fep.dir/Ele_Load.cpp.o: ../Ele_Load.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fep.dir/Ele_Load.cpp.o"
-	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/Ele_Load.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Load.cpp
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: CMakeFiles/fep.dir/flags.make
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: ../Ele_Traction.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fep.dir/Ele_Traction.cpp.o"
+	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/Ele_Traction.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Traction.cpp
 
-CMakeFiles/fep.dir/Ele_Load.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fep.dir/Ele_Load.cpp.i"
-	/usr/bin/mpicxx  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Load.cpp > CMakeFiles/fep.dir/Ele_Load.cpp.i
+CMakeFiles/fep.dir/Ele_Traction.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fep.dir/Ele_Traction.cpp.i"
+	/usr/bin/mpicxx  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Traction.cpp > CMakeFiles/fep.dir/Ele_Traction.cpp.i
 
-CMakeFiles/fep.dir/Ele_Load.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fep.dir/Ele_Load.cpp.s"
-	/usr/bin/mpicxx  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Load.cpp -o CMakeFiles/fep.dir/Ele_Load.cpp.s
+CMakeFiles/fep.dir/Ele_Traction.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fep.dir/Ele_Traction.cpp.s"
+	/usr/bin/mpicxx  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Traction.cpp -o CMakeFiles/fep.dir/Ele_Traction.cpp.s
 
-CMakeFiles/fep.dir/Ele_Load.cpp.o.requires:
+CMakeFiles/fep.dir/Ele_Traction.cpp.o.requires:
 
-.PHONY : CMakeFiles/fep.dir/Ele_Load.cpp.o.requires
+.PHONY : CMakeFiles/fep.dir/Ele_Traction.cpp.o.requires
 
-CMakeFiles/fep.dir/Ele_Load.cpp.o.provides: CMakeFiles/fep.dir/Ele_Load.cpp.o.requires
-	$(MAKE) -f CMakeFiles/fep.dir/build.make CMakeFiles/fep.dir/Ele_Load.cpp.o.provides.build
-.PHONY : CMakeFiles/fep.dir/Ele_Load.cpp.o.provides
+CMakeFiles/fep.dir/Ele_Traction.cpp.o.provides: CMakeFiles/fep.dir/Ele_Traction.cpp.o.requires
+	$(MAKE) -f CMakeFiles/fep.dir/build.make CMakeFiles/fep.dir/Ele_Traction.cpp.o.provides.build
+.PHONY : CMakeFiles/fep.dir/Ele_Traction.cpp.o.provides
 
-CMakeFiles/fep.dir/Ele_Load.cpp.o.provides.build: CMakeFiles/fep.dir/Ele_Load.cpp.o
+CMakeFiles/fep.dir/Ele_Traction.cpp.o.provides.build: CMakeFiles/fep.dir/Ele_Traction.cpp.o
+
+
+CMakeFiles/fep.dir/Ele_body.cpp.o: CMakeFiles/fep.dir/flags.make
+CMakeFiles/fep.dir/Ele_body.cpp.o: ../Ele_body.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fep.dir/Ele_body.cpp.o"
+	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/Ele_body.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_body.cpp
+
+CMakeFiles/fep.dir/Ele_body.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fep.dir/Ele_body.cpp.i"
+	/usr/bin/mpicxx  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_body.cpp > CMakeFiles/fep.dir/Ele_body.cpp.i
+
+CMakeFiles/fep.dir/Ele_body.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fep.dir/Ele_body.cpp.s"
+	/usr/bin/mpicxx  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_body.cpp -o CMakeFiles/fep.dir/Ele_body.cpp.s
+
+CMakeFiles/fep.dir/Ele_body.cpp.o.requires:
+
+.PHONY : CMakeFiles/fep.dir/Ele_body.cpp.o.requires
+
+CMakeFiles/fep.dir/Ele_body.cpp.o.provides: CMakeFiles/fep.dir/Ele_body.cpp.o.requires
+	$(MAKE) -f CMakeFiles/fep.dir/build.make CMakeFiles/fep.dir/Ele_body.cpp.o.provides.build
+.PHONY : CMakeFiles/fep.dir/Ele_body.cpp.o.provides
+
+CMakeFiles/fep.dir/Ele_body.cpp.o.provides.build: CMakeFiles/fep.dir/Ele_body.cpp.o
 
 
 CMakeFiles/fep.dir/Ele_Stiff.cpp.o: CMakeFiles/fep.dir/flags.make
 CMakeFiles/fep.dir/Ele_Stiff.cpp.o: ../Ele_Stiff.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fep.dir/Ele_Stiff.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fep.dir/Ele_Stiff.cpp.o"
 	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/Ele_Stiff.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Stiff.cpp
 
 CMakeFiles/fep.dir/Ele_Stiff.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/fep.dir/Ele_Stiff.cpp.o.provides.build: CMakeFiles/fep.dir/Ele_Stiff.
 
 CMakeFiles/fep.dir/ReadEle.cpp.o: CMakeFiles/fep.dir/flags.make
 CMakeFiles/fep.dir/ReadEle.cpp.o: ../ReadEle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fep.dir/ReadEle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fep.dir/ReadEle.cpp.o"
 	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/ReadEle.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/ReadEle.cpp
 
 CMakeFiles/fep.dir/ReadEle.cpp.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/fep.dir/ReadEle.cpp.o.provides.build: CMakeFiles/fep.dir/ReadEle.cpp.
 
 CMakeFiles/fep.dir/Reorder.cpp.o: CMakeFiles/fep.dir/flags.make
 CMakeFiles/fep.dir/Reorder.cpp.o: ../Reorder.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fep.dir/Reorder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fep.dir/Reorder.cpp.o"
 	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/Reorder.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/Reorder.cpp
 
 CMakeFiles/fep.dir/Reorder.cpp.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/fep.dir/Reorder.cpp.o.provides.build: CMakeFiles/fep.dir/Reorder.cpp.
 
 CMakeFiles/fep.dir/SolveEq.cpp.o: CMakeFiles/fep.dir/flags.make
 CMakeFiles/fep.dir/SolveEq.cpp.o: ../SolveEq.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fep.dir/SolveEq.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/fep.dir/SolveEq.cpp.o"
 	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/SolveEq.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/SolveEq.cpp
 
 CMakeFiles/fep.dir/SolveEq.cpp.i: cmake_force
@@ -275,7 +299,7 @@ CMakeFiles/fep.dir/SolveEq.cpp.o.provides.build: CMakeFiles/fep.dir/SolveEq.cpp.
 
 CMakeFiles/fep.dir/Ele_Stress.cpp.o: CMakeFiles/fep.dir/flags.make
 CMakeFiles/fep.dir/Ele_Stress.cpp.o: ../Ele_Stress.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/fep.dir/Ele_Stress.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/fep.dir/Ele_Stress.cpp.o"
 	/usr/bin/mpicxx   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/fep.dir/Ele_Stress.cpp.o -c /home/wei/Documents/FiniteElementProgramming/TermProject/Ele_Stress.cpp
 
 CMakeFiles/fep.dir/Ele_Stress.cpp.i: cmake_force
@@ -303,7 +327,8 @@ fep_OBJECTS = \
 "CMakeFiles/fep.dir/shapefunction.cpp.o" \
 "CMakeFiles/fep.dir/Analysis.cpp.o" \
 "CMakeFiles/fep.dir/Assemble.cpp.o" \
-"CMakeFiles/fep.dir/Ele_Load.cpp.o" \
+"CMakeFiles/fep.dir/Ele_Traction.cpp.o" \
+"CMakeFiles/fep.dir/Ele_body.cpp.o" \
 "CMakeFiles/fep.dir/Ele_Stiff.cpp.o" \
 "CMakeFiles/fep.dir/ReadEle.cpp.o" \
 "CMakeFiles/fep.dir/Reorder.cpp.o" \
@@ -317,7 +342,8 @@ libfep.a: CMakeFiles/fep.dir/FEA.cpp.o
 libfep.a: CMakeFiles/fep.dir/shapefunction.cpp.o
 libfep.a: CMakeFiles/fep.dir/Analysis.cpp.o
 libfep.a: CMakeFiles/fep.dir/Assemble.cpp.o
-libfep.a: CMakeFiles/fep.dir/Ele_Load.cpp.o
+libfep.a: CMakeFiles/fep.dir/Ele_Traction.cpp.o
+libfep.a: CMakeFiles/fep.dir/Ele_body.cpp.o
 libfep.a: CMakeFiles/fep.dir/Ele_Stiff.cpp.o
 libfep.a: CMakeFiles/fep.dir/ReadEle.cpp.o
 libfep.a: CMakeFiles/fep.dir/Reorder.cpp.o
@@ -325,7 +351,7 @@ libfep.a: CMakeFiles/fep.dir/SolveEq.cpp.o
 libfep.a: CMakeFiles/fep.dir/Ele_Stress.cpp.o
 libfep.a: CMakeFiles/fep.dir/build.make
 libfep.a: CMakeFiles/fep.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library libfep.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wei/Documents/FiniteElementProgramming/TermProject/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX static library libfep.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/fep.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fep.dir/link.txt --verbose=$(VERBOSE)
 
@@ -338,7 +364,8 @@ CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/FEA.cpp.o.requires
 CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/shapefunction.cpp.o.requires
 CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Analysis.cpp.o.requires
 CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Assemble.cpp.o.requires
-CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Ele_Load.cpp.o.requires
+CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Ele_Traction.cpp.o.requires
+CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Ele_body.cpp.o.requires
 CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Ele_Stiff.cpp.o.requires
 CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/ReadEle.cpp.o.requires
 CMakeFiles/fep.dir/requires: CMakeFiles/fep.dir/Reorder.cpp.o.requires

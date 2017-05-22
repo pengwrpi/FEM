@@ -45,7 +45,7 @@ function FEM_2Dor3D_linelast_standard
 %
 % YOU NEED TO CHANGE THE PATH & FILE NAME TO POINT TO YOUR INPUT FILE
 %
-infile=fopen('Linear_elastic_triangles.txt','r');
+infile=fopen('Linear_elastic_triangles6.txt','r');
 outfile=fopen('FEM_results.txt','w');
 
 [nprops,materialprops,ncoord,ndof,nnode,coords,nelem,maxnodes,connect,nelnodes,elident,nfix,fixnodes,ndload,dloads] = read_input_file(infile);
@@ -219,7 +219,7 @@ function n = numberofintegrationpoints(ncoord,nelnodes,elident)
          n = 1;
      end
      if (nelnodes == 6)
-         n = 3;
+         n = 4;
      end
      if (nelnodes == 4)
          n = 4;
@@ -261,8 +261,8 @@ function xi = integrationpoints(ncoord,nelnodes,npoints,elident)
        xi(1,2) = -xi(1,1);
      elseif (npoints == 3) 
        xi(1,1) = -0.7745966692;
-       xi(1,2) = 0.0;
-       xi(1,3) = -xi(1,1);
+       xi(1,3) = 0.0;
+       xi(1,2) = -xi(1,1);
      end
 %
 %  2D elements
@@ -408,7 +408,7 @@ function w = integrationweights(ncoord,nelnodes,npoints,elident)
      elseif (npoints == 2) 
        w = [1.,1.];
      elseif (npoints == 3) 
-       w = [0.555555555,0.888888888,0.555555555];
+       w = [0.555555555,0.555555555,0.888888888];
      end
 %
 %  2D elements
@@ -629,9 +629,9 @@ function dNdxi = shapefunctionderivs(nelnodes,ncoord,elident,xi)
        dNdxi(4,1) = 4.*xi(2);
        dNdxi(4,2) = 4.*xi(1);
        dNdxi(5,1) = -4.*xi(2);
-       dNdxi(5,2) = -4.*xi(1);
-       dNdxi(6,1) = 4.*xi3 - 4.*xi(1);
-       dNdxi(6,2) = 4.*xi3 - 4.*xi(2);
+       dNdxi(5,2) = -4.*xi(1) + 4.0 - 8.0 * xi(2);
+       dNdxi(6,1) = 4.0 - 8.0 * xi(1) - 4.0 * xi(2);
+       dNdxi(6,2) = -4.0 * xi(1);
 %
 %    Rectangular element
 %                  
@@ -909,7 +909,9 @@ function kel = elstif(ncoord,ndof,nelnodes,elident,coord,materialprops,displacem
           end
         end
       end
+      
    end
+   
 
 end
 
@@ -1064,8 +1066,10 @@ function r = eldload(ncoord,ndof,nfacenodes,elident,coords,traction)
         row = ndof*(a-1)+i;
         r(row) = r(row) + N(a)*traction(i)*w(intpt)*dt;
       end
-    end
+   end
+    
   end
+  
 end
 %
 %====================== Assemble the global stiffness matrix =================

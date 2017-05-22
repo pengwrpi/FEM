@@ -5,6 +5,8 @@
 
 int main(int argc, char** argv)
 {
+  if (argc != 3)
+      std::cerr << "wrong argument" << std::endl;
   MPI_Init(&argc,&argv);
   pumi_start();
   pGeom geom = pumi_geom_load(NULL, "null");
@@ -14,7 +16,6 @@ int main(int argc, char** argv)
   int y = 1;
   double x_len = 1.0;
   double y_len = 1.0;
-  //for this specific problem, we know there are 5*7 = 35 vertices
   pMeshEnt vertices[(x+1) * (y+1)]; 
 
   //create the vertices at the assigned positions
@@ -42,6 +43,34 @@ int main(int argc, char** argv)
   vertices_selected[2] = vertices[2];
   e_ = pumi_mesh_createElem(mesh, NULL, PUMI_TRIANGLE, vertices_selected);
   std::cout << "element 1 " << pumi_ment_getID(e_) << " created" << std::endl;
+  
+#if 1
+
+  pMeshEnt vertices4;
+  pMeshEnt vertices5;
+
+  double points[3];
+  points[0] = 2.0;
+  points[1] = 0.0;
+  points[2] = 0.0;
+
+  vertices4 = pumi_mesh_createVtx(mesh, NULL, points);
+
+  points[1] = 1.0;
+  vertices5 = pumi_mesh_createVtx(mesh, NULL, points);
+
+  pMeshEnt vertices_quad[4];
+  vertices_quad[0] = vertices[1];
+  vertices_quad[1] = vertices4;
+  vertices_quad[2] = vertices5;
+  vertices_quad[3] = vertices[3];
+
+  std::cout << "all vertices created" << std::endl;
+
+  e_ = pumi_mesh_createElem(mesh, NULL, PUMI_QUAD, vertices_quad);
+  std::cout << "element 2 " << pumi_ment_getID(e_) << " created" << std::endl;
+
+#endif
 
 
 
@@ -89,10 +118,13 @@ int main(int argc, char** argv)
   pumi_mesh_freeze(mesh);
   pumi_mesh_verify(mesh);
 
+  char mesh_name[100];
+  strcpy(mesh_name, argv[2]);
+  strcat(mesh_name, ".smb");
       
 
-  pumi_mesh_write(mesh,"outTriangle.smb");
-  pumi_mesh_write(mesh,"outTriangle","vtk");
+  pumi_mesh_write(mesh,mesh_name);
+  pumi_mesh_write(mesh,argv[2],"vtk");
   pumi_mesh_delete(mesh);
   pumi_finalize();
   MPI_Finalize();

@@ -43,27 +43,6 @@ CMakeFiles/fep.dir/Assemble.cpp.o: /home/wei/Downloads/installer/scorec/install/
 CMakeFiles/fep.dir/Assemble.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_errorcode.h
 CMakeFiles/fep.dir/Assemble.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_list.h
 
-CMakeFiles/fep.dir/Ele_Load.cpp.o: ../Ele_Load.cpp
-CMakeFiles/fep.dir/Ele_Load.cpp.o: ../FEA.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenIterator.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenTag.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/PCU.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apf.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfArray.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfDynamicArray.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMatrix.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMesh.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMesh2.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfNew.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfVector.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/canArray.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/canNewArray.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/gmi.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/mPartEntityContainer.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_errorcode.h
-CMakeFiles/fep.dir/Ele_Load.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_list.h
-
 CMakeFiles/fep.dir/Ele_Stiff.cpp.o: ../Ele_Stiff.cpp
 CMakeFiles/fep.dir/Ele_Stiff.cpp.o: ../FEA.h
 CMakeFiles/fep.dir/Ele_Stiff.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenIterator.h
@@ -105,6 +84,48 @@ CMakeFiles/fep.dir/Ele_Stress.cpp.o: /home/wei/Downloads/installer/scorec/instal
 CMakeFiles/fep.dir/Ele_Stress.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi.h
 CMakeFiles/fep.dir/Ele_Stress.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_errorcode.h
 CMakeFiles/fep.dir/Ele_Stress.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_list.h
+
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: ../Ele_Traction.cpp
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: ../FEA.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenIterator.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenTag.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/PCU.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apf.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfArray.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfDynamicArray.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMatrix.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMesh.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMesh2.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfNew.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfVector.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/canArray.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/canNewArray.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/gmi.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/mPartEntityContainer.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_errorcode.h
+CMakeFiles/fep.dir/Ele_Traction.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_list.h
+
+CMakeFiles/fep.dir/Ele_body.cpp.o: ../Ele_body.cpp
+CMakeFiles/fep.dir/Ele_body.cpp.o: ../FEA.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenIterator.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/GenTag.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/PCU.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apf.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfArray.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfDynamicArray.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMatrix.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMesh.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfMesh2.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfNew.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/apfVector.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/canArray.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/canNewArray.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/gmi.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/mPartEntityContainer.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_errorcode.h
+CMakeFiles/fep.dir/Ele_body.cpp.o: /home/wei/Downloads/installer/scorec/install/include/pumi_list.h
 
 CMakeFiles/fep.dir/FEA.cpp.o: ../FEA.cpp
 CMakeFiles/fep.dir/FEA.cpp.o: ../FEA.h
